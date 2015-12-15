@@ -28,11 +28,18 @@ class BaseService
   #
   # [params (Hash)] request parameters
   #
-  def initialize(params)
+  def initialize(params = {})
     @params = params.dup
   end
 
+  #
+  # == Before action for execute
+  #
+  def before_action
+  end
+
   def invoke
+    before_action
     execute
     ServiceResponse.new self
   end

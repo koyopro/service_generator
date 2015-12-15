@@ -19,4 +19,11 @@ class ServiceResponse
   def success?
     errors.blank?
   end
+
+  #
+  # Invoke not success
+  #
+  def failure?
+    !success?
+  end
 end

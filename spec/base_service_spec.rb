@@ -36,6 +36,7 @@ RSpec.describe BaseService, type: :service do
 
     context 'result is valid' do
       it { expect(subject.success?).to be_truthy }
+      it { expect(subject.failure?).to be_falsy }
       it { expect(subject.errors).to be_blank }
     end
 
@@ -44,6 +45,7 @@ RSpec.describe BaseService, type: :service do
       let(:errors) { double('errors') }
 
       it { expect(subject.success?).to be_falsy }
+      it { expect(subject.failure?).to be_truthy }
       it { expect(subject.errors).to eq(errors) }
     end
   end
